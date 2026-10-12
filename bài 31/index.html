@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Hình Ảnh Nâng Cao - Lê Minh Thuận</title>
+    <!-- Nhúng Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Tùy chỉnh giao diện Header & Hero */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 0;
+        }
+        .portrait-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Tùy chỉnh thẻ Card Album */
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.06);
+        }
+        
+        /* Tùy chỉnh Modal xem ảnh lớn */
+        .modal-content {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        .modal-header {
+            border-bottom: 1px solid #333;
+        }
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+        .modal-body img {
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        #modalCaption {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. THANH ĐIỀU HƯỚNG (NAVBAR) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fa-solid fa-camera-retro me-2 text-primary"></i>ALBUM KỶ NIỆM NÂNG CAO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#about">Chân dung</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Bộ sưu tập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION VÀ CHÂN DUNG CÁ NHÂN -->
+    <header class="hero-section text-center" id="about">
+        <div class="container">
+            <!-- Ảnh chân dung sinh viên -->
+            <img src="avatar.jpg" alt="Lê Minh Thuận" class="rounded-circle portrait-img mb-3" 
+                 onerror="this.src='https://via.placeholder.com/150?text=Minh+Thuan'">
+            
+            <h1 class="fw-bold display-5">Album Hình Ảnh Sống Mãi Với Thời Gian</h1>
+            <p class="lead mb-1">Sinh viên thực hiện: <strong>Lê Minh Thuận</strong> - MSSV: <strong>231A010577</strong></p>
+            <p class="text-white-50"><i class="fa-solid fa-hand-pointer me-1"></i> Bấm vào từng bức ảnh bên dưới để xem ở kích thước lớn trong Modal</p>
+        </div>
+    </header>
+
+    <!-- 3. LƯỚI ALBUM ẢNH (BOOTSTRAP GRID SYSTEM) -->
+    <section class="py-5 bg-light" id="gallery">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-uppercase">Bộ Sưu Tập Kỷ Niệm</h2>
+                <div class="bg-primary mx-auto" style="width: 80px; height: 3px;"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Ô ảnh 1 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="avatar.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Môi Trường Học Tập" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh1.jpg"
+                             data-title="Môi Trường Học Tập"
+                             data-caption="Những góc nhìn bình yên và thân thuộc tại trường đại học."
+                             onerror="this.src='https://picsum.photos/800/600?random=1'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=1')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Môi Trường Học Tập</h5>
+                            <p class="card-text text-muted">Những góc nhìn bình yên và thân thuộc tại trường học.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 2 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh2.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Hành Trình Khám Phá" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh2.jpg"
+                             data-title="Hành Trình Khám Phá"
+                             data-caption="Những chuyến đi ghi dấu ấn kỷ niệm và những trải nghiệm tươi đẹp."
+                             onerror="this.src='https://picsum.photos/800/600?random=2'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=2')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Hành Trình Khám Phá</h5>
+                            <p class="card-text text-muted">Những chuyến đi ghi dấu ấn kỷ niệm và trải nghiệm mới.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 3 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh3.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Góc Nhìn Công Nghệ" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh3.jpg"
+                             data-title="Góc Nhìn Công Nghệ"
+                             data-caption="Không gian làm việc sáng tạo cùng đam mê lập trình Web & Hệ thống."
+                             onerror="this.src='https://picsum.photos/800/600?random=3'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=3')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Góc Nhìn Công Nghệ</h5>
+                            <p class="card-text text-muted">Không gian làm việc và niềm đam mê phát triển phần mềm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 4 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh4.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Thành Phố Tới Sớm" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh4.jpg"
+                             data-title="Thành Phố Tới Sớm"
+                             data-caption="Nhịp sống năng động rạng rỡ chào đón ngày mới."
+                             onerror="this.src='https://picsum.photos/800/600?random=4'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=4')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Thành Phố Tới Sớm</h5>
+                            <p class="card-text text-muted">Nhịp sống sôi động và góc phố rực rỡ dưới ánh nắng.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 5 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh5.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Sắc Màu Thiên Nhiên" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh5.jpg"
+                             data-title="Sắc Màu Thiên Nhiên"
+                             data-caption="Cảnh sắc thiên nhiên xanh mát mang lại cảm giác thư thái tâm hồn."
+                             onerror="this.src='https://picsum.photos/800/600?random=5'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=5')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Sắc Màu Thiên Nhiên</h5>
+                            <p class="card-text text-muted">Sự dịu êm của cảnh sắc thiên nhiên thư thái tâm hồn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 6 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh6.jpg" 
+                             class="card-img-top img-fluid gallery-img" 
+                             alt="Hoàng Hôn Ấm Áp" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal" 
+                             data-src="images/anh6.jpg"
+                             data-title="Hoàng Hôn Ấm Áp"
+                             data-caption="Ánh hoàng hôn dịu nhẹ khép lại một ngày học tập hiệu quả."
+                             onerror="this.src='https://picsum.photos/800/600?random=6'; this.setAttribute('data-src', 'https://picsum.photos/800/600?random=6')">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Hoàng Hôn Ấm Áp</h5>
+                            <p class="card-text text-muted">Khoảnh khắc khép lại một ngày làm việc đầy ý nghĩa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BOOTSTRAP MODAL XEM ẢNH LỚN -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-primary" id="modalTitle">Xem Ảnh Lớn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" class="img-fluid" alt="Ảnh phóng to" />
+                    <p id="modalCaption" class="mt-3"></p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-1">Tác giả: <strong>Lê Minh Thuận</strong> - Lập Trình Web Nâng Cao</p>
+            <p class="small text-white-50 mb-0">&copy; 2026 Album hình ảnh sống mãi với thời gian. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 6. JAVASCRIPT XỬ LÝ SỰ KIỆN CLICK VÀO ẢNH -->
+    <script>
+        // Lắng nghe sự kiện click trên tất cả ảnh có thuộc tính data-bs-toggle="modal"
+        document.querySelectorAll('img[data-bs-toggle="modal"]').forEach(img => {
+            img.addEventListener('click', function() {
+                // Lấy đường dẫn ảnh lớn, tiêu đề và mô tả từ data attributes
+                const src = this.getAttribute('data-src');
+                const title = this.getAttribute('data-title') || "Chi Tiết Hình Ảnh";
+                const caption = this.getAttribute('data-caption') || "";
+
+                // Gán dữ liệu vào Modal
+                document.getElementById('modalImage').setAttribute('src', src);
+                document.getElementById('modalTitle').innerText = title;
+                document.getElementById('modalCaption').innerText = caption;
+            });
+        });
+    </script>
+</body>
+</html>
