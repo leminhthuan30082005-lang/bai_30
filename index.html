@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album hình ảnh sống mãi với thời gian</title>
+    <!-- Nhúng Bootstrap 5 CSS qua CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 0;
+        }
+        .portrait-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .card-img-top {
+            transition: transform 0.4s ease;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVBAR / HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fa-solid fa-camera-retro me-2"></i>ALBUM KỶ NIỆM
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#about">Chân dung</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Bộ sưu tập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION & CHÂN DUNG CÁ NHÂN -->
+    <header class="hero-section text-center" id="about">
+        <div class="container">
+            <!-- Ảnh chân dung cá nhân (Lưu ảnh của bạn vào thư mục images/chan-dung.jpg) -->
+            <img src="avatar.jpg" alt="Lê Minh Thuận" class="rounded-circle portrait-img mb-3" 
+                 onerror="this.src='https://via.placeholder.com/150?text=Minh+Thuan'">
+            
+            <h1 class="fw-bold display-5">Album hình ảnh sống mãi với thời gian</h1>
+            <p class="lead mb-1">Tác giả: <strong>Lê Minh Thuận</strong> - MSSV: 231A010577</p>
+            <p class="text-white-50">Lưu giữ những khoảnh khắc đẹp nhất qua ống kính và lập trình Web.</p>
+        </div>
+    </header>
+
+    <!-- 3. ALBUM GRID (BỘ SƯU TẬP ẢNH DẠNG LƯỚI BOOTSTRAP) -->
+    <section class="py-5 bg-light" id="gallery">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-uppercase">Bộ Sưu Tập Kỷ Niệm</h2>
+                <div class="bg-primary mx-auto" style="width: 80px; height: 3px;"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Ô ảnh 1 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh1.jpg" class="card-img-top img-fluid" alt="Ảnh 1" onerror="this.src='https://picsum.photos/400/300?random=1'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Môi Trường Học Tập</h5>
+                            <p class="card-text text-muted">Những góc nhìn bình yên và thân thuộc tại trường học.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 2 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh2.jpg" class="card-img-top img-fluid" alt="Ảnh 2" onerror="this.src='https://picsum.photos/400/300?random=2'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Hành Trình Khám Phá</h5>
+                            <p class="card-text text-muted">Những chuyến đi ghi dấu ấn kỷ niệm và trải nghiệm mới.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 3 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh3.jpg" class="card-img-top img-fluid" alt="Ảnh 3" onerror="this.src='https://picsum.photos/400/300?random=3'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Góc Nhìn Công Nghệ</h5>
+                            <p class="card-text text-muted">Không gian làm việc và niềm đam mê phát triển phần mềm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 4 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh4.jpg" class="card-img-top img-fluid" alt="Ảnh 4" onerror="this.src='https://picsum.photos/400/300?random=4'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Thành Phố Tới Sớm</h5>
+                            <p class="card-text text-muted">Nhịp sống sôi động và góc phố rực rỡ dưới ánh nắng.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 5 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh5.jpg" class="card-img-top img-fluid" alt="Ảnh 5" onerror="this.src='https://picsum.photos/400/300?random=5'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Sắc Màu Thiên Nhiên</h5>
+                            <p class="card-text text-muted">Sự dịu êm của cảnh sắc thiên nhiên thư thái tâm hồn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ô ảnh 6 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card h-100">
+                        <img src="images/anh6.jpg" class="card-img-top img-fluid" alt="Ảnh 6" onerror="this.src='https://picsum.photos/400/300?random=6'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Hoàng Hôn Ấm Áp</h5>
+                            <p class="card-text text-muted">Khoảnh khắc khép lại một ngày làm việc đầy ý nghĩa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-1">Tác giả: <strong>Lê Minh Thuận</strong> - Lập trình Web với Bootstrap 5</p>
+            <p class="small text-white-50 mb-0">&copy; 2026 Album hình ảnh sống mãi với thời gian.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
